@@ -1,4 +1,4 @@
-package com.example.middlepoint.jwt.model;
+package com.example.middlepoint.config.jwt.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JwtResponse {
+public class JwtRequest {
 
-   private String jwtToken;
-
-
+   private String username;
+   private String password;
 }
