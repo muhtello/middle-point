@@ -1,6 +1,8 @@
 package com.example.middlepoint.deck.entity;
 
 
+import com.example.middlepoint.user.entity.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -29,10 +31,18 @@ public class Deck {
    )
    private String collection;
 
-   @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "deck", orphanRemoval = true)
+   @OneToMany(fetch = FetchType.LAZY,
+	   cascade = CascadeType.ALL,
+	   mappedBy = "deck",
+	   orphanRemoval = true
+   )
    @JsonManagedReference
    private List <Card> cards;
 
+   @JsonBackReference
+   @ManyToOne(fetch = FetchType.LAZY)
+   @JoinColumn(name = "user_Id")
+	private User user;
 
    public Deck() {
    }
@@ -78,5 +88,13 @@ public class Deck {
 
    public void setCards(List<Card> cards) {
 	  this.cards = cards;
+   }
+
+   public User getUser() {
+	  return user;
+   }
+
+   public void setUser(User user) {
+	  this.user = user;
    }
 }
