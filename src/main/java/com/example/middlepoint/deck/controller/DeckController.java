@@ -1,9 +1,12 @@
 package com.example.middlepoint.deck.controller;
 
+import com.example.middlepoint.config.services.AuthenticatedUserService;
 import com.example.middlepoint.deck.entity.Deck;
 import com.example.middlepoint.deck.service.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -14,11 +17,15 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping(path="api/v1/deck")
+@RequestMapping(path="/api/v1/deck")
+@PreAuthorize("@authenticatedUserService.isAuthorized()")
+
 @CrossOrigin(origins = "http://localhost:3000")
 public class DeckController {
    private final DeckService deckService;
 
+   @Autowired
+   private AuthenticatedUserService authenticatedUserService;
 
    @Autowired
    public DeckController(DeckService deckService) {
@@ -30,9 +37,10 @@ public class DeckController {
       return deckService.getAllDeck();
    }
 
-   @GetMapping(path = "{id}")
-   public Optional<Deck> getDeckById(@PathVariable("id") long id){
-      return deckService.getDeckById(id);
+   //@PreAuthorize("@authenticatedUserService.hasId(#id)") @PathVariable("deck_id") in function
+   @GetMapping(path = "{deck_id}")
+   public Optional<Deck> getDeckById(@PathVariable("deck_id") long deckId){
+      return deckService.getDeckById(deckId);
    }
 
    @PostMapping

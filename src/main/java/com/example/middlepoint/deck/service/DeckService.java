@@ -4,13 +4,16 @@ import com.example.middlepoint.deck.entity.Card;
 import com.example.middlepoint.deck.entity.Deck;
 //import com.example.middlepoint.deck.repository.CardRepository;
 import com.example.middlepoint.deck.repository.DeckRepository;
+import javassist.expr.NewArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 
@@ -33,6 +36,14 @@ public class DeckService {
    public Optional<Deck> getDeckById(long id){
       return deckRepository.findById(id);
    }
+
+   /*public List<Deck> getDeckByUsername(long userId){
+
+
+     return
+   }*/
+
+
 
 
    public void addDeck (Deck newDeck){

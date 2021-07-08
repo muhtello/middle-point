@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(
-	name = "user",
+	name = "users",
 	 uniqueConstraints = {
 		 @UniqueConstraint(columnNames = "username"),
 		 @UniqueConstraint(columnNames = "email")
@@ -61,6 +61,13 @@ public class User {
 	  this.username = username;
 	  this.email = email;
 	  this.password = password;
+   }
+
+   public User(Long id, String username, String email, List<Deck> decks) {
+	  this.id = id;
+	  this.username = username;
+	  this.email = email;
+	  this.decks = decks;
    }
 
    public Long getId() {
