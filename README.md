@@ -6,7 +6,7 @@
 - [x] Spring Boot
 - [x] API 
 - [x] Create, Save, Edit On Database
-- [ ] Security 
+- [x] Security 
 - [ ] Client Side
 
 # Diagram
@@ -15,8 +15,8 @@
 this made by pgAdmin 4
 
 ## Spring Boot
-![APP](DiagramApp.jpg)
+![APP](DiagramAppPic.JPG)
 
 # Example Request
 ## Postman
-![PostMan](Diagram%20Postman.jpg)
+![PostMan](DiagramPostman.jpg)
