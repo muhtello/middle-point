@@ -11,7 +11,7 @@
 
 # Diagram
 ## Database
-![Database](DiagramDatabank.jpg)
+![Database](DiagramDatabank.JPG)
 this made by pgAdmin 4
 
 ## Spring Boot
@@ -19,4 +19,4 @@ this made by pgAdmin 4
 
 # Example Request
 ## Postman
-![PostMan](DiagramPostman.jpg)
+![PostMan](DiagramPostman.JPG)
