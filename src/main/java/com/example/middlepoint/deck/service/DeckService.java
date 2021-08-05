@@ -1,53 +1,58 @@
 package com.example.middlepoint.deck.service;
 
-import com.example.middlepoint.deck.entity.Card;
+
 import com.example.middlepoint.deck.entity.Deck;
-//import com.example.middlepoint.deck.repository.CardRepository;
 import com.example.middlepoint.deck.repository.DeckRepository;
-import javassist.expr.NewArray;
+import com.example.middlepoint.user.entity.User;
+
+import com.example.middlepoint.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
+
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 
 @Service
 public class DeckService {
    private final DeckRepository deckRepository;
-   //private Logger logg = LoggerFactory.getLogger(DeckCardsService.class);
+   private final UserRepository userRepository;
 
-   @Autowired
+   /*@Autowired
    public DeckService(DeckRepository deckRepository) {
 	  this.deckRepository = deckRepository;
+   }*/
+
+   @Autowired
+   public DeckService(DeckRepository deckRepository, UserRepository userRepository) {
+      this.deckRepository = deckRepository;
+      this.userRepository = userRepository;
    }
 
-
+   private  User getUserById (Long userId)
+   {
+      Optional<User> user = userRepository.findById(userId);
+      return user.get();
+   }
    public List<Deck> getAllDeck(){
 
       return deckRepository.findAll();
    }
 
-   public Optional<Deck> getDeckById(long id){
-      return deckRepository.findById(id);
+   public Optional<Deck> getDeckById(long deckId){
+
+      return deckRepository.findById(deckId);
    }
 
-   /*public List<Deck> getDeckByUsername(long userId){
 
 
-     return
-   }*/
-
-
-
-
-   public void addDeck (Deck newDeck){
-     deckRepository.save(newDeck);
+   public void addDeck (Deck newDeck, Long userId){
+      User currentUser = getUserById(userId);
+      Deck deck = newDeck;
+      deck.setUser(currentUser);
+     deckRepository.save(deck);
 
    }
 

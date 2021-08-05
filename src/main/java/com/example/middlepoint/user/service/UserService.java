@@ -1,9 +1,6 @@
 package com.example.middlepoint.user.service;
 
 import com.example.middlepoint.deck.entity.Deck;
-import com.example.middlepoint.deck.repository.CardRepository;
-import com.example.middlepoint.deck.repository.DeckRepository;
-import com.example.middlepoint.deck.service.DeckService;
 import com.example.middlepoint.user.entity.User;
 import com.example.middlepoint.user.payload.UserDataResponse;
 import com.example.middlepoint.user.repository.UserRepository;
@@ -11,21 +8,15 @@ import com.example.middlepoint.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.Null;
+
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
+
 
 @Service
 public class UserService {
 
    private final UserRepository userRepository;
-
-   @Autowired
-   private  DeckService deckService;
-
-   @Autowired
-   private CardRepository cardRepository;
 
    @Autowired
    public UserService(UserRepository userRepository) {

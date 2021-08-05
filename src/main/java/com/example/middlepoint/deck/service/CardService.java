@@ -45,7 +45,6 @@ public class CardService {
    }
 
    public void deleteCard (long cardId, Long deckId){
-      //System.out.print(deckId + cardId);
 
       if (isDeckValid(deckId).isPresent()){
          cardRepository.deleteById(cardId);

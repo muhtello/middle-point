@@ -20,6 +20,13 @@ public class JwtResponse {
       this.roles = roles;
    }
 
+
+   public JwtResponse(String token, String username) {
+      this.token = token;
+      this.username = username;
+
+   }
+
    public String getAccessToken() {
       return token;
    }

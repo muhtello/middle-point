@@ -1,14 +1,21 @@
 package com.example.middlepoint.config.jwt.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class JwtRequest {
 
-   private String username;
-   private String password;
+   private String token;
+
+   public JwtRequest() {
+   }
+
+   public JwtRequest(String token) {
+      this.token = token;
+   }
+
+   public String getToken() {
+      return token;
+   }
+
+   public void setToken(String token) {
+      this.token = token;
+   }
 }
