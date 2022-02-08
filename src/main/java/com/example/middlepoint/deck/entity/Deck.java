@@ -16,9 +16,6 @@ public class Deck {
    @GeneratedValue(
 	strategy = GenerationType.IDENTITY
    )
-   @Column(
-   	name="id"
-   )
    private Long id;
 
    @Column(
@@ -26,9 +23,6 @@ public class Deck {
 	   nullable = false
    )
    private String name;
-   @Column(
-	   name="collection"
-   )
    private String collection;
 
    @OneToMany(fetch = FetchType.LAZY,

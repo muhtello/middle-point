@@ -35,13 +35,11 @@ public class CardService {
    }
 
 
-
    public void addCard(Card newCard, long idDeck){
 
       Deck deck = getCurrentDeck(idDeck);
-      Card card = newCard;
-      card.setDeck(deck);
-      cardRepository.save(card);
+      newCard.setDeck(deck);
+      cardRepository.save(newCard);
    }
 
    public void deleteCard (long cardId, Long deckId){

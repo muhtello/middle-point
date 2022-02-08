@@ -21,9 +21,7 @@ public class Card {
 	   strategy = GenerationType.SEQUENCE,
 	   generator = "card_sequence"
    )
-   @Column(
-	   name="Id"
-   )
+
    private long id;
 
    @JsonBackReference
@@ -32,35 +30,18 @@ public class Card {
    private Deck deck;
 
 
-   @Column(
-		name="question",
-		columnDefinition="Text"
-   )
+   @Column(columnDefinition="Text")
    private String question;
 
 
-   @Column(
-	   name="answer",
-	   columnDefinition="Text"
-   )
+   @Column(columnDefinition="Text")
    private String answer;
 
-
-   @Column(
-	   name="card_Status"
-   )
    private String cardStatus;
 
-   @Column(
-   		name="last_Review"
-   )
    @JsonFormat(pattern="dd-MM-yyyy")
    private Date lastReview;
 
-
-   @Column(
-   		name="next_Review"
-   )
    @JsonFormat(pattern="dd-MM-yyyy")
    private Date NextReview;
 

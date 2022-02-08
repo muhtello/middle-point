@@ -47,12 +47,10 @@ public class DeckService {
    }
 
 
-
    public void addDeck (Deck newDeck, Long userId){
       User currentUser = getUserById(userId);
-      Deck deck = newDeck;
-      deck.setUser(currentUser);
-     deckRepository.save(deck);
+      newDeck.setUser(currentUser);
+     deckRepository.save(newDeck);
 
    }
 
